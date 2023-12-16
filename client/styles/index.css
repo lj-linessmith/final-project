@@ -1,0 +1,496 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+@font-face {
+  font-family: futura;
+  src: './futura/futuralight.ttf';
+}
+
+.container {
+  margin: 20px;
+}
+
+/* Add Gradient and Box Shadow to Nearby Locations Container */
+.nearbyLocationsContainer {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  overflow: auto;
+  transition: padding 0.3s ease-in-out;
+
+  border-radius: 8px;
+}
+
+.locationContainer {
+  position: relative;
+  text-align: center;
+  background-color: #404040;
+  height: 100px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.locationContainer:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  background-color: #4a4a4a;
+}
+
+/* Add Gradient and Box Shadow to Arena Container */
+.arenaContainer {
+  height: 800px;
+  width: 800px;
+  border: 1px solid #2c2c2c;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 50px;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(180deg, #333, #1e1e1e);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Add Gradient, Box Shadow, and Hover Animation to Arena Fighter */
+.arenaFighter {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #404040;
+  margin-right: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  background: 0.3s ease-in-out;
+  position: absolute;
+}
+.fightImage {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  margin-left: 10%;
+  display: block;
+  align-self: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  filter: invert;
+}
+
+.weapon-right {
+  position: absolute;
+  top: 40%;
+  left: 80px;
+  width: 50px;
+}
+
+.weapon-left {
+  position: absolute;
+  top: 40%;
+  right: 80px;
+  width: 50px;
+}
+
+.weapon-img-right {
+  width: 100%;
+}
+.weapon-img-left {
+  width: 100%;
+  transform: scaleX(-1);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Form Container */
+#form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #333, #1e1e1e);
+  padding: 20px;
+  border: 1px solid #404040;
+  /* border-radius: 8px; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for the Submit Button */
+.sumbitButton {
+  background-color: rgb(60, 1, 127);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-family: futura, sans-serif;
+  font-weight: bold;
+}
+
+.sumbitButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.sumbitButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.sumbitButton:hover span {
+  padding-right: 25px;
+}
+
+.sumbitButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.sumbitButton:hover {
+  background-color: #5d0e8b;
+}
+
+/* Styling for the Form Input */
+#form-container input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #404040;
+  color: #fff;
+}
+
+/* Fight Button Container */
+.fightButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for the Fight Button */
+.fightButton {
+  background-color: #b11818;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: futura, sans-serif;
+  font-weight: bold;
+}
+
+.fightButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.fightButton span:after {
+  content: '➳';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.fightButton:hover span {
+  padding-right: 25px;
+}
+
+.fightButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.fightButton:hover {
+  background-color: #fd0000;
+}
+
+/* Add Gradient and Box Shadow to Winner Container */
+.winnerContainer {
+  height: 800px;
+  width: 800px;
+  border: 1px solid #2c2c2c;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #333, #1e1e1e);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add Gradient, Box Shadow, and Hover Animation to Winner Fighter */
+.winnerFighter {
+  width: 700px; /* Adjust the width based on your preference */
+  height: 700px; /* Adjust the height based on your preference */
+  border: 1px solid #404040;
+  position: absolute;
+  margin-left: 49px;
+  margin-top: 49px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Arrange content vertically */
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  /* background: linear-gradient(180deg, #ffd700, #ffd900e3); */
+  background: linear-gradient(180deg, rgb(60, 1, 127), #5d0e8b);
+  color: white;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+}
+
+/* Adjust the position of the winnerFighter */
+.winnerFighter:hover {
+  /* transform: scale(1.2); */
+  box-shadow: 0 0 20px rgba(174, 0, 255, 0.8);
+  /* background: linear-gradient(180deg, #ffd700, #ffd700); */
+  background-color: #5d0e8b;
+  /* color: #333; Darker text color on hover */
+}
+
+#star {
+  color: black;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  font-size: 25px;
+}
+
+.bin {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  background: #404040;
+  border: none;
+  font-size: larger;
+  color: #b11818;
+  margin-right: auto;
+  margin-bottom: auto;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.bin:hover {
+  background-color: #fd0000;
+  border-radius: 100%;
+  opacity: 60%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ratingContainer {
+  display: flex;
+  font-size: 27px;
+}
+
+.star {
+  margin-top: -0.5px;
+  font-size: 25px;
+}
+
+.winnerLinkActive {
+  font-family: futura, sans-serif;
+  background-color: rgba(0, 0, 0, 0.185);
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+.winnerFighter:hover .winnerLinkActive {
+  transform: scale(1.2);
+
+  color: white; /* Darker text color on hover */
+}
+.winnerLinkActive:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.winnerLinkActive:hover {
+  background-color: rgba(174, 0, 255, 0.8);
+  /* background-color: rgba(40, 40, 40, 0.4); */
+  width: 200px;
+  transition: 0.5s;
+
+  border-radius: 10px;
+}
+
+.winnerLinkInactive {
+  font-family: futura, sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+}
+.winnerFighter:hover .winnerLinkInactive {
+  transform: scale(1.2);
+
+  color: white; /* Darker text color on hover */
+}
+
+.inverted {
+  filter: invert(100%);
+}
+
+.header {
+  background-color: rgb(0, 24, 201);
+  font-family: futura, sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.header span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.header span:after {
+  content: ' ↺';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.header:hover span {
+  padding-right: 25px;
+}
+
+.header:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.header:hover {
+  background-color: rgb(1, 58, 214);
+}
+
+.description {
+  padding-left: 15px;
+  font-size: 1.2em;
+  font-family: futura, sans-serif;
+  color: white;
+}
+.description span {
+  color: red;
+}
+
+.footer {
+  position: fixed;
+
+  bottom: -17px;
+  font-family: futura, sans-serif;
+  font-style: oblique;
+  width: 100%;
+  background: linear-gradient(180deg, #333, #1e1e1e);
+  padding: 10px;
+}
+
+.headButton {
+  padding-left: 15px;
+  padding-top: 5px;
+}
